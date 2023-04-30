@@ -77,7 +77,7 @@ public class movement : MonoBehaviour
             if (hitstuncounter < 0)
             {
                 Time.timeScale = 1;
-                cam.transform.Rotate(0, 0, Random.Range(0, 0));
+                cam.transform.rotation = Quaternion.identity;
                 cam.GetComponent<Camera>().orthographicSize = 5;
             }
             else
@@ -225,7 +225,7 @@ public class movement : MonoBehaviour
             hitstuncounter = hitstun;
 
             cam.transform.Rotate(0, 0, Random.Range(-20, 20));
-            cam.GetComponent<Camera>().orthographicSize = 4;
+            cam.GetComponent<Camera>().orthographicSize = 4.5f;
 
             health -= 1;
 
