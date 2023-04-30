@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class movement : MonoBehaviour
 {
@@ -66,14 +67,16 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            Debug.Log(rb.position.y);
-        if (rb.position.y < -130){
+        if (rb.position.y < -130)
+        {
             health = 0;
         }
+
         if (health <= 0)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 1;
             dead = true;
+            SceneManager.LoadScene("restartscreen", LoadSceneMode.Single);
         }
 
         if (!dead)
@@ -228,7 +231,20 @@ public class movement : MonoBehaviour
 
             hitstuncounter = hitstun;
 
-            cam.transform.Rotate(0, 0, Random.Range(-20, 20));
+            int randomangle = 0;
+            randomangle = Random.Range(1, 3);
+
+            if (randomangle == 1)
+            {
+                randomangle = -20;
+            }
+            else if (randomangle == 2)
+            {
+                randomangle = 20;
+            }
+
+            cam.transform.Rotate(0, 0, randomangle);
+            Debug.Log(cam.transform.rotation);
             cam.GetComponent<Camera>().orthographicSize = 4.5f;
 
             health -= 1;
