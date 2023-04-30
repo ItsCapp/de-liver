@@ -66,6 +66,10 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            Debug.Log(rb.position.y);
+        if (rb.position.y < -130){
+            health = 0;
+        }
         if (health <= 0)
         {
             Time.timeScale = 0;
