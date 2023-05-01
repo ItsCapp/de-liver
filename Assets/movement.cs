@@ -35,7 +35,6 @@ public class movement : MonoBehaviour
     float jumpCooldown = 0.2f;
     float jumpCooldownCounter;
 
-    public int maxhealth = 3;
     public int health;
     public bool dead = false;
     public float hitstun = 0.01f;
@@ -48,7 +47,7 @@ public class movement : MonoBehaviour
     [SerializeField] float jumpforce = 10;
     [SerializeField] float gravity = 5;
     [SerializeField] float maxspeed = 10;
-
+     Vector3 respawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +55,8 @@ public class movement : MonoBehaviour
 
         rb.gravityScale = gravity;
 
-        health = maxhealth;
+        health = GlobalVars.heartNum;
+        speed += GlobalVars.speedLvl * 2;
     }
 
     private bool IsGrounded()
@@ -77,8 +77,15 @@ public class movement : MonoBehaviour
         if (health <= 0)
         {
             Time.timeScale = 1;
+            if (GlobalVars.lifeupNum < 1){
             dead = true;
             SceneManager.LoadScene("restartscreen", LoadSceneMode.Single);
+            }
+            else {
+                GlobalVars.lifeupNum -= 1;
+                health = GlobalVars.heartNum;
+                transform.position = respawn;
+            }
         }
 
         if (!dead)
@@ -93,6 +100,7 @@ public class movement : MonoBehaviour
             {
                 hitstuncounter -= Time.deltaTime;
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded == true && coyotetimecounter > 0f)
@@ -110,7 +118,12 @@ public class movement : MonoBehaviour
             if (IsGrounded())
             {
                 coyotetimecounter = coyotetime;
-            }
+                respawn.x = transform.position.x;
+                respawn.y = transform.position.y;
+                respawn.y = transform.position.z;
+
+                Debug.Log(transform.position);
+                            }
             else
             {
                 coyotetimecounter -= Time.deltaTime;
@@ -220,6 +233,7 @@ public class movement : MonoBehaviour
                 }
             }
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -272,5 +286,6 @@ public class movement : MonoBehaviour
             clamped.y = vel.y;
             rb.velocity = clamped;
         }
+        
     }
 }

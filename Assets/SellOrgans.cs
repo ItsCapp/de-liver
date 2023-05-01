@@ -19,6 +19,7 @@ public class SellOrgans : MonoBehaviour
 
     public void Bingoid () {  
         GlobalVars.coins +=SetOrganMoney.organMoney;
+        GlobalVars.organHeartNum =  GlobalVars.organKindneyNum =  GlobalVars.organLiverNum = 0;  
         SetOrganMoney.organMoney = 0;
 
      }

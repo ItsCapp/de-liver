@@ -7,7 +7,7 @@ public class enemygreen : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Transform playertransform;
 
-    public float health = 10;
+    public float health = 5;
 
     public float smoothSpeed;
     public Vector3 offset;

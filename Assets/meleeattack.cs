@@ -59,7 +59,7 @@ public class meleeattack : MonoBehaviour
 
             enemygreen script = collision.GetComponent<enemygreen>();
 
-            script.health -= 5;
+            script.health -= (GlobalVars.powerLvl+1)*2;
 
             if (m.grounded == false)
             {
