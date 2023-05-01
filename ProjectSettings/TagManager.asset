@@ -8,6 +8,7 @@ TagManager:
   - bouncable
   - connector
   - dollr
+  - organ
   layers:
   - Default
   - TransparentFX

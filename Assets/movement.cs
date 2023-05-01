@@ -11,6 +11,8 @@ public class movement : MonoBehaviour
     public Animator animator;
     public SpriteRenderer sr;
 
+    public escape escape;
+
     public GameObject arm1;
     public GameObject arm2;
     Vector2 arm1idleoffset = new Vector2(-1.2f, -1.025f);
@@ -247,6 +249,12 @@ public class movement : MonoBehaviour
             health -= 1;
 
             Time.timeScale = 0.01f;
+        }
+
+        if (collision.gameObject.tag == "organ")
+        {
+            Destroy(collision.gameObject);
+            escape.escaping = true;
         }
     }
 

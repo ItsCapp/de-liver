@@ -17,11 +17,12 @@ public class shopslidesdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  var Maincam = Camera.main;
-        if (time < ScrollTime){
-        time += Time.deltaTime;
-        t = Mathf.Sin((time/ScrollTime) * Mathf.PI * 0.5f);
+        if (time < ScrollTime)
+        {
+            time += Time.deltaTime;
+            t = Mathf.Sin((time/ScrollTime) * Mathf.PI * 0.5f);
       
-      Maincam.transform.position = new Vector3(0, Mathf.Lerp(9,0,Mathf.Min(t, 1)), -100);
+            Maincam.transform.position = new Vector3(0, Mathf.Lerp(16,0,Mathf.Min(t, 1)), -100);
         }
         else{
                 Maincam.transform.position = new Vector3(0,0, -100);
