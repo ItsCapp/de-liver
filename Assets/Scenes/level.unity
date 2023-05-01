@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 716390897}
   liverRoom: {fileID: 3902672205251304637, guid: a33c463dc7fecd940ae651fac7f4b231, type: 3}
+  exitroom: {fileID: 0}
   prefabs:
   - {fileID: 5789657809449907708, guid: 15509d5a8881b7f418f17abe04d4b8d4, type: 3}
   - {fileID: 6466713773516522552, guid: 4066079e3623e1843b791e2d968c522e, type: 3}
@@ -503,6 +504,10 @@ PrefabInstance:
     - target: {fileID: 3432376698242326418, guid: c3f8130ffe074d446b5186c76e04046f, type: 3}
       propertyPath: hitstun
       value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432376698242326418, guid: c3f8130ffe074d446b5186c76e04046f, type: 3}
+      propertyPath: jumpforce
+      value: 19.06
       objectReference: {fileID: 0}
     - target: {fileID: 3432376698242326419, guid: c3f8130ffe074d446b5186c76e04046f, type: 3}
       propertyPath: m_Name

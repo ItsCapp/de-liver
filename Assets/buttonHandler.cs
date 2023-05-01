@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class buttonHandler : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class buttonHandler : MonoBehaviour
 
     public void menu()
     {
-        Debug.Log("no menu yet!");
+        SceneManager.LoadScene("Title", LoadSceneMode.Single);
+    }
+public void tutor()
+    {
+          Application.OpenURL("https://teejio.github.io/tutorial/");
     }
 }
