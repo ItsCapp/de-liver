@@ -85,6 +85,7 @@ public class movement : MonoBehaviour
                 GlobalVars.lifeupNum -= 1;
                 health = GlobalVars.heartNum;
                 transform.position = respawn;
+                 rb.velocity = new Vector2(0,0);
             }
         }
 
