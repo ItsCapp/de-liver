@@ -7,7 +7,6 @@ using TMPro;
 public class escape : MonoBehaviour
 {
     public AudioSource escapemusic;
-    public AudioSource music;
 
     public GameObject getouttext;
     public GameObject timertext;
@@ -34,7 +33,6 @@ public class escape : MonoBehaviour
             if (!escapemusic.isPlaying)
             {
                 escapemusic.Play();
-                music.Stop();
 
                 getouttext.SetActive(true);
                 timertext.SetActive(true);
