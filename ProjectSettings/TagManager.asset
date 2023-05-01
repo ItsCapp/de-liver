@@ -9,6 +9,7 @@ TagManager:
   - connector
   - dollr
   - organ
+  - escape
   layers:
   - Default
   - TransparentFX
