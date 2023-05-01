@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 3432376698242326430}
   - component: {fileID: 3432376698242326431}
   - component: {fileID: 3432376698242326428}
+  - component: {fileID: 7791742568214034255}
   - component: {fileID: 3432376698242326429}
   - component: {fileID: 3432376698242326418}
   - component: {fileID: 3432376698242326425}
@@ -573,7 +574,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -584,8 +585,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.5, y: 0.75}
   m_EdgeRadius: 0
+--- !u!58 &7791742568214034255
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432376698242326419}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: ef8ce5765bd0edf4591aa6bff86c379b, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.25}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!50 &3432376698242326429
 Rigidbody2D:
   serializedVersion: 4
@@ -620,19 +637,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3432376698242326429}
-  col: {fileID: 3432376698242326428}
+  col: {fileID: 7791742568214034255}
   animator: {fileID: 3432376697389050415}
   sr: {fileID: 3432376697389050412}
   arm1: {fileID: 3432376697474034456}
   arm2: {fileID: 3432376697709293007}
-  arm1idleoffset: {x: -1.2, y: -1.025}
-  arm2idleoffset: {x: 2, y: -0.9}
-  arm1runoffset: {x: -0.45, y: -0.75}
-  arm2runoffset: {x: 2.6, y: -0.6}
-  arm1idleoffsetflipped: {x: 1, y: -0.9}
-  arm2idleoffsetflipped: {x: -2, y: -0.9}
-  arm1runoffsetflipped: {x: 0.4, y: -0.7}
-  arm2runoffsetflipped: {x: -2.7, y: -0.7}
   arm1renderer: {fileID: 3432376697474034458}
   arm2renderer: {fileID: 3432376697709293001}
   platformLayerMask:
@@ -640,6 +649,12 @@ MonoBehaviour:
     m_Bits: 64
   grounded: 0
   coyotetimecounter: 0
+  maxhealth: 3
+  health: 0
+  dead: 0
+  hitstun: 0.01
+  hitstuncounter: 0
+  cam: {fileID: 0}
   speed: 15
   jumpforce: 17.5
   gravity: 5

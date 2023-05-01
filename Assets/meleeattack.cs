@@ -46,6 +46,9 @@ public class meleeattack : MonoBehaviour
 
                 force.Normalize();
 
+                Animator animator = collision.gameObject.GetComponentInChildren<Animator>();
+                animator.Play("bounce");
+
                 rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.AddForce(force * magnitude, ForceMode2D.Impulse);
             }

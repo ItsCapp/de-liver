@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class movement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] Collider2D col;
+    [SerializeField] CircleCollider2D col;
 
     public Animator animator;
     public SpriteRenderer sr;
@@ -50,7 +50,7 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        col = GetComponent<Collider2D>();
+        col = GetComponent<CircleCollider2D>();
 
         rb.gravityScale = gravity;
 
@@ -149,20 +149,17 @@ public class movement : MonoBehaviour
         }
         else
         {
-            if (grounded)
+            if (rb.velocity.x > 1)
             {
-                if (rb.velocity.x > 1)
-                {
-                    rb.velocity = new Vector2(rb.velocity.x - 1f, rb.velocity.y);
-                }
-                else if (rb.velocity.x < -1)
-                {
-                    rb.velocity = new Vector2(rb.velocity.x + 1f, rb.velocity.y);
-                }
-                else
-                {
-                    rb.velocity = new Vector2(0, rb.velocity.y);
-                }
+                rb.velocity = new Vector2(rb.velocity.x - 1f, rb.velocity.y);
+            }
+            else if (rb.velocity.x < -1)
+            {
+                rb.velocity = new Vector2(rb.velocity.x + 1f, rb.velocity.y);
+            }
+            else
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
             }
         }
 
@@ -236,11 +233,11 @@ public class movement : MonoBehaviour
 
             if (randomangle == 1)
             {
-                randomangle = -20;
+                randomangle = -10;
             }
             else if (randomangle == 2)
             {
-                randomangle = 20;
+                randomangle = 10;
             }
 
             cam.transform.Rotate(0, 0, randomangle);

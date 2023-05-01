@@ -26,7 +26,7 @@ public class enemygreen : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playertransform = player.GetComponent<Transform>();
 
-        smoothSpeed = Random.Range(0.01f, 0.05f);
+        smoothSpeed = Random.Range(0.001f, 0.01f);
     }
 
     // Update is called once per frame
