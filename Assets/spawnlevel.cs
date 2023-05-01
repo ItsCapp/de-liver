@@ -7,6 +7,7 @@ public class spawnlevel : MonoBehaviour
 {
     public GameObject spawn;
     public GameObject liverRoom;
+    public GameObject exitroom;
 
     public GameObject[] prefabs;
     public GameObject[] prefabsescape;
@@ -36,6 +37,7 @@ public class spawnlevel : MonoBehaviour
         lastLevelPartTransform = SpawnEscapeLevelPart(lastLevelPartTransform.Find("connector").position);
         lastLevelPartTransform = SpawnEscapeLevelPart(lastLevelPartTransform.Find("connector").position);
         lastLevelPartTransform = SpawnEscapeLevelPart(lastLevelPartTransform.Find("connector").position);
+        lastLevelPartTransform = Instantiate(exitroom, lastLevelPartTransform.Find("connector").position, Quaternion.identity).transform;
     }
 
     private Transform SpawnLevelPart(Vector3 spawnPos)

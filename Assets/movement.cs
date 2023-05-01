@@ -256,6 +256,11 @@ public class movement : MonoBehaviour
             Destroy(collision.gameObject);
             escape.escaping = true;
         }
+
+        if (collision.gameObject.tag == "escape")
+        {
+            SceneManager.LoadScene("Shop", LoadSceneMode.Single);
+        }
     }
 
     void FixedUpdate()
