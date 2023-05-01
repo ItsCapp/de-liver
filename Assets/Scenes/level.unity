@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 716390897}
   liverRoom: {fileID: 3902672205251304637, guid: a33c463dc7fecd940ae651fac7f4b231, type: 3}
-  exitroom: {fileID: 0}
+  exitroom: {fileID: 2797873394846325829, guid: da2693fb3713eea4a8c490d2c53aa63f, type: 3}
   prefabs:
   - {fileID: 5789657809449907708, guid: 15509d5a8881b7f418f17abe04d4b8d4, type: 3}
   - {fileID: 6466713773516522552, guid: 4066079e3623e1843b791e2d968c522e, type: 3}

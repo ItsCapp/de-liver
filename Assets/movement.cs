@@ -26,6 +26,8 @@ public class movement : MonoBehaviour
     public SpriteRenderer arm1renderer;
     public SpriteRenderer arm2renderer;
 
+    public randomizationorgan ro;
+
     [SerializeField] private LayerMask platformLayerMask;
     float extraHeight = 0.1f;
     public bool grounded = false;
@@ -237,6 +239,11 @@ public class movement : MonoBehaviour
 
     }
 
+    private void Awake()
+    {
+        ro = GameObject.FindObjectOfType<randomizationorgan>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")
@@ -268,6 +275,22 @@ public class movement : MonoBehaviour
 
         if (collision.gameObject.tag == "organ")
         {
+            if (ro.organ == "liver")
+            {
+                GlobalVars.organLiverNum += 1;
+                Debug.Log("liver");
+            }
+            else if (ro.organ == "kidney")
+            {
+                GlobalVars.organKindneyNum += 1;
+                Debug.Log("kidney");
+            }
+            else
+            {
+                GlobalVars.organHeartNum += 1;
+                Debug.Log("heart");
+            }
+
             Destroy(collision.gameObject);
             escape.escaping = true;
         }
